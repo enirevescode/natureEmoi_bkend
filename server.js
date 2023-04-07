@@ -5,7 +5,6 @@ const sequelize = require('sequelize')
 const cors = require('cors')
 
 
-
 const app = express()
 
 /******IMPORT DE LA CONNECTION A LA DB */
@@ -13,7 +12,7 @@ let DB = require('./db.config')
 
 /******IMPORT DEs modules de routage */
 const user_router = require('./routes/users')
-const produit_router = require('./routes/produits')
+const plante_router = require('./routes/plantes')
 
 
     /* Les middleware */

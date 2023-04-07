@@ -1,7 +1,7 @@
 //brochure seque models
 const { DataTypes } = require('sequelize')
 const DB = require('../db.config')
-//const sequelize = require
+
 
 const UserModel = DB.define ('UserModel', {
       id: {

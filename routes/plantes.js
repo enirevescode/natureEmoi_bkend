@@ -1,6 +1,6 @@
 // import des modules necessaires (express, le modèle, bcrypt)
-//const express = require('express')
-const Produit = require('../models/produit')
+
+const Produit = require('../models/plante')
 //const { RequestError, ProduitError } = require('../error/customError')
 
 //Routage de la ressource Produit
