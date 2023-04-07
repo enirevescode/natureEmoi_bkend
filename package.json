@@ -1,0 +1,17 @@
+{
+  "name": "natureemoi_bkend",
+  "version": "1.0.0",
+  "description": "bck-end d'1 site de vente de fleurs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bkend",
+    "express",
+    "sequelize",
+    "mysql"
+  ],
+  "author": "enirevescode",
+  "license": "ISC"
+}
