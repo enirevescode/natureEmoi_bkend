@@ -27,10 +27,10 @@ const validTypes = [`Plante d'intérieur`, `Plante d'extérieur`, `Cactus`, `Pla
         }
       },
       prix: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.NUMBER,
       allowNull: false,
       validate: {
-        isInt: { msg: 'Utilisez uniquement des nombres entiers pour les points de vie.' },
+        isInt: { msg: 'Utilisez uniquement des chiffres pour le prix.' },
         min: {
           args: [0],
           msg: 'Le prix doit être supérieur à 0€.'
@@ -48,7 +48,7 @@ const validTypes = [`Plante d'intérieur`, `Plante d'extérieur`, `Cactus`, `Pla
       allowNull: false,
       validate: {
         isUrl: { msg: 'Utilisez uniquement une URL valide pour l\'image.' },
-        notNull: { msg: 'L\'image est une propriété requise.'}
+        notNull: { msg: `L'image est une propriété requise.`}
       }
     },
     types: {
@@ -63,14 +63,14 @@ const validTypes = [`Plante d'intérieur`, `Plante d'extérieur`, `Cactus`, `Pla
       validate: {
         isTypesValid(value) {
           if(!value) {
-            throw new Error('Un pokémon doit au moins avoir un type.')
+            throw new Error('La plante doit au moins avoir un type.')
           }
           if(value.split(',').length > 3) {
-            throw new Error('Un pokémon ne peux pas avoir plus de trois types.')
+            throw new Error('La plante ne peux pas avoir plus de trois types.')
           }
           value.split(',').forEach(type => {
             if(!validTypes.includes(type)) {
-              throw new Error(`Le type d'un pokémon doit appartenir à la liste suivante : ${validTypes}`)
+              throw new Error(`Le type de la plante doit appartenir à la liste suivante : ${validTypes}`)
             }
           });
         }
@@ -79,7 +79,6 @@ const validTypes = [`Plante d'intérieur`, `Plante d'extérieur`, `Cactus`, `Pla
     description: {
         type: DataTypes.TEXT,
         allowNull: false,
-
     }
   }, {
     timestamps: true,
