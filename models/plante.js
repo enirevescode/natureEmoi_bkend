@@ -75,6 +75,11 @@ const validTypes = [`Plante d'intérieur`, `Plante d'extérieur`, `Cactus`, `Pla
           });
         }
       }
+    },
+    description: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+
     }
   }, {
     timestamps: true,
