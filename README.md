@@ -21,7 +21,7 @@
 </p>
 
 # A propos
-Ce projet est le back de l'applicatif d'un site de fleurs. Il s'agit de la réalisation d'un projet back/front.
+Ce projet est le back de l'applicatif d'un site de fleurs. Il s'agit de la réalisation d'un projet back et front.
 
 
 ## Fonctionnalitées
