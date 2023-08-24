@@ -1,9 +1,5 @@
 
 const UserModel = require('../models/user')
-//const { sequelize, DataTypes } = require('sequelize')
-// Récupération du routeur d'express
-//let router = express.Router()
-
 
 
 /**********************************/

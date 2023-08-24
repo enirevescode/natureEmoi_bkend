@@ -28,13 +28,13 @@ const validTypes = [`Plante d'intérieur`, `Plante d'extérieur`, `Cactus`, `Pla
       },
       prix: {
         type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        isInt: { msg: 'Utilisez uniquement des nombres entiers pour les points de vie.' },
-        min: {
-          args: [0],
-          msg: 'Le prix doit être supérieur à 0€.'
-        },
+        allowNull: false,
+        validate: {
+          isInt: { msg: 'Utilisez uniquement des chiffres pour le prix.' },
+          min: {
+            args: [0],
+            msg: 'Le prix doit être supérieur à 0€.'
+          },
         max: {
           args: [999],
           msg: 'Le prix doit être inférieure ou égale à 999€.'
@@ -43,38 +43,42 @@ const validTypes = [`Plante d'intérieur`, `Plante d'extérieur`, `Cactus`, `Pla
       }
     },
     
-    picture: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        isUrl: { msg: 'Utilisez uniquement une URL valide pour l\'image.' },
-        notNull: { msg: 'L\'image est une propriété requise.'}
-      }
-    },
-    types: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      get() {
-        return this.getDataValue('types').split(',')
-      },
-      set(types) {
-        this.setDataValue('types', types.join())
-      },
-      validate: {
-        isTypesValid(value) {
-          if(!value) {
-            throw new Error('Un pokémon doit au moins avoir un type.')
-          }
-          if(value.split(',').length > 3) {
-            throw new Error('Un pokémon ne peux pas avoir plus de trois types.')
-          }
-          value.split(',').forEach(type => {
-            if(!validTypes.includes(type)) {
-              throw new Error(`Le type d'un pokémon doit appartenir à la liste suivante : ${validTypes}`)
-            }
-          });
+      picture: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          isUrl: { msg: 'Utilisez uniquement une URL valide pour l\'image.' },
+          notNull: { msg: `L'image est une propriété requise.`}
         }
-      }
+    },
+      types: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        get() {
+          return this.getDataValue('types').split(',')
+        },
+        set(types) {
+          this.setDataValue('types', types.join())
+        },
+        validate: {
+          isTypesValid(value) {
+            if(!value) {
+              throw new Error('La plante doit au moins avoir un type.')
+            }
+            if(value.split(',').length > 3) {
+              throw new Error('La plante ne peux pas avoir plus de trois types.')
+            }
+            value.split(',').forEach(type => {
+              if(!validTypes.includes(type)) {
+                throw new Error(`Le type de la plante doit appartenir à la liste suivante : ${validTypes}`)
+              }
+            });
+          }
+        }
+    },
+      description: {
+        type: DataTypes.TEXT,
+        allowNull: false,
     }
   }, {
     timestamps: true,
